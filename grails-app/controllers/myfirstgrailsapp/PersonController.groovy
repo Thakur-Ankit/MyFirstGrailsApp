@@ -4,34 +4,32 @@ import grails.converters.JSON
 
 class PersonController {
 
-    def index() {
-        render "Hello World";
-    }
-
     PersonService personService;
 
+    def index() {
+        render "Hello World from the PersonController";
+    }
+
     def list(Integer max) {
-        params.max = Math.min(max ?: 25, 100)
-        ApiResponseDTO apiResponseDTO = new ApiResponseDTO();
         try {
+            params.max = Math.min(max ?: 25, 100)
             List<Person> personList = personService.list(params);
+            ApiResponseDTO apiResponseDTO = new ApiResponseDTO();
             apiResponseDTO.setCount(personList.size());
             apiResponseDTO.setStatus("success");
             apiResponseDTO.setResults(personList);
+
+            render apiResponseDTO as JSON;
         } catch(Exception ex) {
-            apiResponseDTO.setCount(0);
-            apiResponseDTO.setStatus("fail");
-            apiResponseDTO.setResults(new ArrayList<Person>());
 //            ex.getMessage();
+            return ex;
         }
-        render apiResponseDTO as JSON;
     }
 
     def save() {
         Person person = new Person();
         person.setFirstName("User-" + Math.random());
         person.setLastName("LastName" + Math.random())
-        personService.save(person);
         render personService.save(person) as JSON;
     }
 }
