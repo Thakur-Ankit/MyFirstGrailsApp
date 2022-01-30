@@ -60,6 +60,7 @@ dependencies {
 //    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
     implementation 'org.grails.plugins:mongodb:7.2.0'
     implementation "org.mongodb:mongo-java-driver:3.12.10"
+    implementation 'org.grails.plugins:spring-security-core:4.0.0.RC2'
     profile "org.grails.profiles:web"
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
 //    runtimeOnly "com.h2database:h2"

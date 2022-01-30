@@ -1,10 +1,32 @@
 package myfirstgrailsapp
 
 import grails.converters.JSON
+import grails.plugin.springsecurity.SpringSecurityService
+import grails.plugin.springsecurity.annotation.Secured
+import grails.plugin.springsecurity.userdetails.GrailsUser
 
+@Secured('isAuthenticated()')
 class PersonController {
 
     PersonService personService;
+    SpringSecurityService springSecurityService;
+
+    def loggedInUsername() {
+       render loggedUsername();
+    }
+
+    String loggedUsername() {
+        if ( springSecurityService.principal == null ) {
+            return null
+        }
+        if ( springSecurityService.principal instanceof String ) {
+            return springSecurityService.principal
+        }
+        if ( springSecurityService.principal instanceof GrailsUser ) {
+            return ((GrailsUser) springSecurityService.principal).username
+        }
+        null
+    }
 
     def index() {
         render "Hello World from the PersonController";

@@ -31,10 +31,13 @@
         <div style="margin-left: 100px;">
             <h3>Rest APIs</h3>
             <h3>...</h3>
+            <h2>Default Authenticated Username : <b>test</b> And Password : <b>pass</b></h2>
+            <h3>...</h3>
             <p>Get List of Person: <a href="http://localhost:8080/person/list">/person/list</a></p>
             <p>Get List of Person with limit(max) : <a href="http://localhost:8080/person/list?max=3">/person/list?max=3</a></p>
             <p>Save a Random Person: <a href="http://localhost:8080/person/save">/person/save</a></p>
             <p>Get List of Person Index Page: <a href="http://localhost:8080/person/index">/person/index</a></p>
+            <p>Logout the user: <a href="http://localhost:8080/logout/index">/logout/index</a></p>
 
         </div>
     </section>
