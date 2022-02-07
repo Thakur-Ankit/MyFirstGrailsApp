@@ -54,4 +54,14 @@ class PersonController {
         person.setLastName("LastName" + Math.random())
         render personService.save(person) as JSON;
     }
+
+    def findPersonById(long id) {
+        Person person = personService.findById(id);
+        render ((person == null) ? "Person Not Found" : person as JSON);
+    }
+
+    def deleteById(long id) {
+        personService.delete(id);
+        render "deleted successfully"
+    }
 }

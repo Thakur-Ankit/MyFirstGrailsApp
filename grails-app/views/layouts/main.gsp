@@ -30,6 +30,8 @@
         </ul>
     </div>
 
+    <g:link controller='logout'>Logout</g:link>
+
 </nav>
 
 <g:layoutBody/>

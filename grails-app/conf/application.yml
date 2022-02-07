@@ -113,6 +113,8 @@ environments:
                 username: ""
                 password: ""
                 databaseName: "grails-app"
+                dataSource:
+                    dbCreate: create-drop
         production:
             grails:
                 mongodb:

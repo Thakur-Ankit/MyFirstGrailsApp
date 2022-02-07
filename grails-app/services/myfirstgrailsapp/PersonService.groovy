@@ -11,4 +11,8 @@ interface PersonService {
 
     Long count()
 
+    void delete(long id);
+
+    Person findById(long id)
+
 }

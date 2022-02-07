@@ -17,9 +17,11 @@ class BootStrap {
         userDataService.save("test", "pass", true, false, false, false)
     }
     def destroy = {
-        Person.findAll().each { it.delete(flush:true, failOnError:true) }
-        User.findAll().each { it.delete(flush:true, failOnError:true) }
-        Role.findAll().each { it.delete(flush:true, failOnError:true) }
-        UserRole.findAll().each { it.delete(flush:true, failOnError:true) }
+//        Person.findAll().each { it.delete(flush:true, failOnError:true) }
+//        User.findAll().each { it.delete(flush:true, failOnError:true) }
+//        Role.findAll().each { it.delete(flush:true, failOnError:true) }
+//        UserRole.findAll().each { it.delete(flush:true, failOnError:true) }
+
+        Person.DB.drop()
     }
 }

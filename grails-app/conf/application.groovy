@@ -2,6 +2,8 @@
 
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.useBasicAuth = true
+grails.plugin.springsecurity.logout.postOnly = false
+//grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/person/index'
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'myfirstgrailsapp.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'myfirstgrailsapp.UserRole'
 grails.plugin.springsecurity.authority.className = 'myfirstgrailsapp.Role'
@@ -19,6 +21,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
+	[pattern: '/person/**',      filters: 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'],
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
 	[pattern: '/**/css/**',      filters: 'none'],
